@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,153 @@
     <!-- tailwind and daisy UI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-
+<body class="">
+    <header class="container mx-auto">
+        <nav class="flex justify-between bg-blue-300 p-6 my-5 rounded-xl items-center">
+            <div>
+                <h1 class="text-3xl font-bold">Interactive</h1>
+                <h3 class="text-2xl font-medium text-gray-500">Geometry Genius</h3>
+            </div>
+            <div class="">
+                <button class="btn">Blog</button>
+            </div>
+        </nav>
     </header>
 
-    <main>
+    <main class="container mx-auto">
+        <section class="flex flex-col lg:flex-row items-center justify-between">
 
+            <div class="grid lg:grid-cols-3 gap-10">
+                <!-- Triangle -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/triangle.png" alt="triangle" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Triangle</h2>
+                        <p class="text-center">Area (A) = 0.5 * b * h</p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="tri-base" type="text" class="bg-slate-300 w-24" placeholder="base">
+                            <label for="">cm</label>
+                            <input id="tri-height" type="text" class="bg-slate-300 w-24" placeholder="height">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn w-full btn-primary" onclick="triangleArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rectangle -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/rectangle.png" alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Rectangle</h2>
+                        <p class="text-center">Area (A) = w * l</p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="rec-width" type="text" class="bg-slate-300 w-24" placeholder="width">
+                            <label for="">cm</label>
+                            <input id="rec-length" type="text" class="bg-slate-300 w-24" placeholder="length">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary w-full" onclick="rectangleArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Parallelogram -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/parallelogram.png" alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Parallelogram</h2>
+                        <p class="text-center">Area (A) = b * h</p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="para-base" type="text" class="bg-slate-300 w-24" placeholder="width">
+                            <label for="">cm</label>
+                            <input id="para-height" type="text" class="bg-slate-300 w-24" placeholder="length">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary w-full" onclick="parallelogramArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rhombus -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/rhombus.png" alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Rhombus</h2>
+                        <p class="text-center">Area (A) = 0.5 * d<sub>1</sub> * d<sub>2</sub></p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="rhom-d1" type="text" class="bg-slate-300 w-24" placeholder="width">
+                            <label for="">cm</label>
+                            <input id="rhom-d2" type="text" class="bg-slate-300 w-24" placeholder="length">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary w-full" onclick="rhombusArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pentagon -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/pentagon.png" alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Pentagon</h2>
+                        <p class="text-center">Area (A) = 0.5 * p * b</p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="pen-perimeter" type="text" class="bg-slate-300 w-24" placeholder="width">
+                            <label for="">cm</label>
+                            <input id="pen-base" type="text" class="bg-slate-300 w-24" placeholder="length">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary w-full" onclick="pentagonArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ellipse -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/ellipse.png" alt="Shoes" />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Pentagon</h2>
+                        <p class="text-center">Area (A) = 0.5 * p * b</p>
+                        <div class="flex gap-4 justify-center">
+                            <input id="elli-a" type="text" class="bg-slate-300 w-24" placeholder="width">
+                            <label for="">cm</label>
+                            <input id="elli-b" type="text" class="bg-slate-300 w-24" placeholder="length">
+                            <label for="">cm</label>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary w-full" onclick="ellipseArea()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="card w-72 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title justify-center">Area Value</h2>
+                        <p id="t-area" class="text-center text-red-600 font-bold"></p>
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
